@@ -27,14 +27,6 @@ public class CategoryService {
         categoryBd.get().setDescriptionCategory(categoryReq.getDescriptionCategory());
         return categoryRepository.save(categoryBd.get());
     }
-    public boolean deleteCategory(Long idCategory){
-        Optional<Category> categoryBd = categoryRepository.findById(idCategory);
-        if(categoryBd.isEmpty()){
-            return false;
-        }
-        categoryRepository.delete(categoryBd.get());
-        return true;
-    }
     public List<Category> findAllCategories(){
         return (List<Category>) categoryRepository.findAll();
     }
