@@ -14,5 +14,6 @@ public class Article {
     private Long id;
     private String nameArticle;
     private String description;
+    private Double price;
     private String category;
 }
