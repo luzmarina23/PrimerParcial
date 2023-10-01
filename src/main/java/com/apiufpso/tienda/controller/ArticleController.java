@@ -26,11 +26,12 @@ public class ArticleController {
 
     @GetMapping("articles")
     public ResponseEntity<List<Article>> findAll(){
+
         return ResponseEntity.ok(articleService.findAllArticles());
     }
 
-    @PutMapping("articles/id")
-    public ResponseEntity<Article> update(@RequestBody Article article, @PathVariable long id){
+    @PutMapping("articles/{id}")
+    public ResponseEntity<Article> update(@RequestBody Article article, @PathVariable Long id){
             return new ResponseEntity<>(articleService.updateArticle(article, id), HttpStatus.OK);
     }
 }
