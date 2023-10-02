@@ -26,7 +26,6 @@ public class ArticleController {
 
     @GetMapping("articles")
     public ResponseEntity<List<Article>> findAll(){
-
         return ResponseEntity.ok(articleService.findAllArticles());
     }
 

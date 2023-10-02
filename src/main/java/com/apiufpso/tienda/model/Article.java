@@ -1,10 +1,7 @@
 package com.apiufpso.tienda.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -15,5 +12,11 @@ public class Article {
     private String nameArticle;
     private String description;
     private Double price;
-    private String category;
+    
+    //muchos articulos, una categoria
+    @ManyToOne(cascade = CascadeType.REMOVE)
+
+    //realizar la union
+    @JoinColumn(name = "idCategory",referencedColumnName = "idCategory")
+    private Category category;
 }
