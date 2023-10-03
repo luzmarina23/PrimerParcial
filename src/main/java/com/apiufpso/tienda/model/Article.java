@@ -12,10 +12,6 @@ public class Article {
     private String nameArticle;
     private String description;
     private Double price;
-    
-    //muchos articulos, una categoria
-    @ManyToOne(cascade = CascadeType.REMOVE)
-
     //realizar la union
     @JoinColumn(name = "idCategory",referencedColumnName = "idCategory")
     private Category category;
