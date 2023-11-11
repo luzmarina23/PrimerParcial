@@ -36,6 +36,7 @@ public class ArticleService {
         articleBd.get().setDescription(articleReq.getDescription());
         articleBd.get().setPrice(articleReq.getPrice());
         articleBd.get().setCategory(articleReq.getCategory());
+        articleBd.get().setStock(articleReq.getStock());
         return articleRepository.save(articleBd.get());
     }
 
