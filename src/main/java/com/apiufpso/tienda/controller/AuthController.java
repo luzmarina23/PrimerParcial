@@ -1,5 +1,9 @@
-package com.apiufpso.tienda.auth;
+package com.apiufpso.tienda.controller;
 
+import com.apiufpso.tienda.auth.AuthResponse;
+import com.apiufpso.tienda.service.AuthService;
+import com.apiufpso.tienda.auth.LoginRequest;
+import com.apiufpso.tienda.auth.RegisterRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

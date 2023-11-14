@@ -1,5 +1,8 @@
-package com.apiufpso.tienda.auth;
+package com.apiufpso.tienda.service;
 
+import com.apiufpso.tienda.auth.AuthResponse;
+import com.apiufpso.tienda.auth.LoginRequest;
+import com.apiufpso.tienda.auth.RegisterRequest;
 import com.apiufpso.tienda.exception.NotFoundException;
 import com.apiufpso.tienda.jwt.JwtService;
 import com.apiufpso.tienda.model.User;
