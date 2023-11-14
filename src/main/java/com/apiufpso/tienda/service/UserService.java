@@ -28,7 +28,7 @@ public class UserService {
             throw new NotFoundException(Constants.USER_NOT_FOUND.getMessage());
         }
         userBd.get().setFirstName(userReq.getFirstName());
-        userBd.get().setLastname(userReq.getLastname());
+        userBd.get().setLastName(userReq.getLastName());
         //userBd.get().setAddress(userReq.getAddress());
         userBd.get().setPhone(userReq.getPhone());
         return userRepository.save(userBd.get());
