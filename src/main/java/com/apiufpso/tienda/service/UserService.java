@@ -5,6 +5,7 @@ import com.apiufpso.tienda.model.User;
 import com.apiufpso.tienda.repository.UserRepository;
 import com.apiufpso.tienda.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +16,11 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public User createUser(User userReq){
+        userReq.setPassword(passwordEncoder.encode(userReq.getPassword()));
         return userRepository.save(userReq);
     }
     public  User getUserById(Long id){
