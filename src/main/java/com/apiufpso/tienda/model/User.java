@@ -5,10 +5,12 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import jdk.jfr.Unsigned;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -43,6 +45,7 @@ public class User implements UserDetails{
 
     @NotNull(message = "email is required")
     @Email(message = "email not valid")
+    @Column(unique = true)
     private String email;
 
     //@JsonIgnore
