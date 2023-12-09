@@ -40,7 +40,7 @@ public class ApplicationConfig {
     @Bean
     public UserDetailsService userDetailService() {
         return email -> userRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException(Constants.USER_NOT_FOUND.getMessage()));
+                .orElseThrow(() -> new RuntimeException(Constants.CREDENTIAL_INVALID.getMessage()));
     }
 
 }

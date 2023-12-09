@@ -32,14 +32,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         final String token = getTokenFromRequest(request);
-        final String email;
+        final String email = jwtService.getEmailFromToken(token);;
 
         if (token == null){
             filterChain.doFilter(request,response);
             return;
         }
-
-        email = jwtService.getEmailFromToken(token);
 
         if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = userDetailsService.loadUserByUsername(email);
@@ -62,6 +60,5 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
         return null;
     }
-
 
 }
