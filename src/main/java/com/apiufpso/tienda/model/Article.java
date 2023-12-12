@@ -1,10 +1,13 @@
 package com.apiufpso.tienda.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -25,10 +28,8 @@ public class Article {
 
     @NotNull(message = "stock is required")
     private int stock;
-    
-    //muchos articulos, una categoria
+
     @ManyToOne()
-    //realizar la union
-    @JoinColumn(name = "idCategory",referencedColumnName = "idCategory")
+    @JoinColumn(name = "id_category", referencedColumnName = "idCategory")
     private Category category;
 }
