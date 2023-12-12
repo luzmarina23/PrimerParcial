@@ -35,6 +35,7 @@ public class ArticleController {
     public ResponseEntity<Article> update(@Valid @RequestBody Article article, @PathVariable Long id){
             return new ResponseEntity<>(articleService.updateArticle(article, id), HttpStatus.OK);
     }
+<<<<<<< HEAD
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(
@@ -47,4 +48,6 @@ public class ArticleController {
         });
         return errors;
     }
+=======
+>>>>>>> dfe4cf768b2ad1b7379eb540dcffe72d74e35316
 }

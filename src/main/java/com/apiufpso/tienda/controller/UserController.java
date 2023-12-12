@@ -45,4 +45,8 @@ public class UserController {
     public ResponseEntity<List<User>> findAll(){
         return ResponseEntity.ok(userService.findAllUsers());
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> dfe4cf768b2ad1b7379eb540dcffe72d74e35316
 }

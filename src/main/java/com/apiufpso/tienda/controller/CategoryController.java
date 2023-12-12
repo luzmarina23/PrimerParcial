@@ -35,6 +35,7 @@ public class CategoryController {
     public ResponseEntity<List<Category>> findAll() {
         return ResponseEntity.ok(categoryService.findAllCategories());
     }
+<<<<<<< HEAD
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex){
@@ -46,4 +47,7 @@ public class CategoryController {
         });
         return errors;
     }
+=======
+
+>>>>>>> dfe4cf768b2ad1b7379eb540dcffe72d74e35316
 }
