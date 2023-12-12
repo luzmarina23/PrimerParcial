@@ -48,11 +48,16 @@ public class User implements UserDetails{
     @Column(unique = true)
     private String email;
 
-    //@JsonIgnore
     @NotNull(message = "password is required")
     @Size(min = 8, max = 255, message = "password min 8 characters and max 15")
     private String password;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    List<Address> addressList;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
