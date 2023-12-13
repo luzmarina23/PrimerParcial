@@ -23,19 +23,31 @@ public class ArticleController {
     public ResponseEntity<Article> create(@Valid @RequestBody Article article){
         return  new ResponseEntity<>(articleService.createArticle(article), HttpStatus.CREATED);
     }
-
     @GetMapping("articles/{id}")
     public ResponseEntity<Article> getArticleById(@PathVariable Long id){
         return ResponseEntity.ok(articleService.getArticleById(id));
     }
-
     @GetMapping("articles")
     public ResponseEntity<List<Article>> findAll(){
         return ResponseEntity.ok(articleService.findAllArticles());
     }
-
     @PutMapping("articles/{id}")
     public ResponseEntity<Article> update(@Valid @RequestBody Article article, @PathVariable Long id){
             return new ResponseEntity<>(articleService.updateArticle(article, id), HttpStatus.OK);
     }
+<<<<<<< HEAD
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationExceptions(
+            MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return errors;
+    }
+=======
+>>>>>>> dfe4cf768b2ad1b7379eb540dcffe72d74e35316
 }

@@ -8,23 +8,23 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
 @ControllerAdvice
+@RestControllerAdvice
 public class CustomExceptionHandler {
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<Object> handleNotFoundException(NotFoundException notFoundException){
-        Map<String,String> response = new HashMap<>();
+        Map<String, String> response = new HashMap<>();
         response.put("Date: ", LocalDate.now().toString());
-        response.put("Message: ", notFoundException.getMessage());
+        response.put("Message: ",notFoundException.getMessage());
         response.put("Error Code: ", "404");
         return new ResponseEntity<Object>(response, HttpStatus.NOT_FOUND);
-
     }
-
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(
@@ -37,7 +37,10 @@ public class CustomExceptionHandler {
         });
         return errors;
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> dfe4cf768b2ad1b7379eb540dcffe72d74e35316
     @ExceptionHandler(AlreadyExistsException.class)
     public ResponseEntity<Object> handleAlreadyExistsException(AlreadyExistsException ex) {
         Map<String, String> response = new HashMap<>();
@@ -45,7 +48,10 @@ public class CustomExceptionHandler {
         response.put("Message: ", ex.getMessage());
         return new ResponseEntity<>(response, HttpStatus.CONFLICT);
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> dfe4cf768b2ad1b7379eb540dcffe72d74e35316
     @ExceptionHandler(AuthenticationFailedException.class)
     public ResponseEntity<?> handleAuthenticationFailedException(AuthenticationFailedException ex) {
         Map<String, Object> body = new HashMap<>();
@@ -53,7 +59,10 @@ public class CustomExceptionHandler {
         body.put("message", ex.getMessage());
         return new ResponseEntity<>(body, HttpStatus.FORBIDDEN);
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> dfe4cf768b2ad1b7379eb540dcffe72d74e35316
     @ExceptionHandler(BindException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<Map<String, String>> handleValidationExceptions(BindException ex) {

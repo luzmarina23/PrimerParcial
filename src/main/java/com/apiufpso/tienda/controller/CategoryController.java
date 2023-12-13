@@ -23,20 +23,31 @@ public class CategoryController {
     public ResponseEntity<Category> create(@Valid @RequestBody Category category) {
         return new ResponseEntity<>(categoryService.createCategory(category), HttpStatus.CREATED);
     }
-
     @GetMapping("categories/{idCategory}")                                       //EndPoint GET para "Obtener por ID"
     public ResponseEntity<Category> getCategoryById(@PathVariable Long idCategory) {
         return ResponseEntity.ok(categoryService.getCategoryById(idCategory));
     }
-
     @PutMapping("categories/{idCategory}")                                      //EndPoint PUT para "Actualizar por ID"
     public ResponseEntity<Category> update(@Valid @RequestBody Category category, @PathVariable Long idCategory) {
         return new ResponseEntity<>(categoryService.updateCategory(category, idCategory), HttpStatus.OK);
     }
-
     @GetMapping("categories")
     public ResponseEntity<List<Category>> findAll() {
         return ResponseEntity.ok(categoryService.findAllCategories());
     }
+<<<<<<< HEAD
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex){
+        Map<String,String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return errors;
+    }
+=======
 
+>>>>>>> dfe4cf768b2ad1b7379eb540dcffe72d74e35316
 }
